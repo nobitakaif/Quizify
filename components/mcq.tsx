@@ -110,7 +110,7 @@ export default function MCQuiz() {
                         onChange={() => handleOptionChange(questionNumber, key)}
                         className="cursor-pointer"
                         />
-                        <strong>{key.toLowerCase()} :  </strong>  { String( val)}
+                        <strong> {key.toLowerCase()} :  </strong>  { String( val)}
                     </div>
                     ))}
                 </div>
