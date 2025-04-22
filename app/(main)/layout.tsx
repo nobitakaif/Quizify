@@ -1,6 +1,5 @@
 import { ModeToggle } from "@/components/ui/ModeToggle";
 import { SignedIn, UserButton } from "@clerk/nextjs";
-import { checkIsRoutePPREnabled } from "next/dist/server/lib/experimental/ppr";
 import { ReactNode } from "react";
 
 

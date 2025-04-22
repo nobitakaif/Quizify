@@ -4,7 +4,7 @@ import { ThreeDCardDemo } from "@/components/test";
 
 export default function(){
     return <div>
-        <ThreeDCardDemo/>
-        {/* <QnA/> */}
+        {/* <ThreeDCardDemo/> */}
+        <QnA/>
     </div>
 }

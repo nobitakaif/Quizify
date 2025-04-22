@@ -45,7 +45,7 @@ export default function MCQuiz() {
     }
 
     try {
-      const response = await axios.post("http://localhost:3002/checkbox", {
+      const response = await axios.post("http://35.225.165.253:3002/checkbox", {
         difficultyLevel: level,
         topic: topic,
         question: question,
@@ -75,10 +75,10 @@ export default function MCQuiz() {
   };
 
   return (
-    <div className=" flex gap-4 overflow-y-auto scrollbar-hide">
-        <div className=" w-[25%] rounded-2xl  flex justify-center items-center h-[90vh]">
+    <div className=" flex gap-4 overflow-y-auto scrollbar-hide max-sm:flex-col">
+        <div className=" w-[25%] max-sm:w-full max-sm:p-5 rounded-2xl  flex justify-center items-center h-[90vh]">
           
-            <div className="flex flex-col w-72 items-center gap-3 p-8 border rounded-xl  ">
+            <div className="flex flex-col w-72 items-center gap-3 p-8 border max-sm:w-full  rounded-xl  ">
                 <Input type="text" ref={pointRef} placeholder="Enter your topic" />
                 <Input type="text" ref={levelRef} placeholder="Difficulty level" />
                 <Input type="text" ref={questionRef} placeholder="Number of questions" />
@@ -88,7 +88,7 @@ export default function MCQuiz() {
         </div>
       
 
-      <div className="flex flex-col gap-4 border rounded-2xl p-10 w-[70%]  h-[90vh] overflow-y-auto">
+      <div className="flex flex-col gap-4 border rounded-2xl p-10 w-[70%]  h-[90vh] overflow-y-auto max-sm:w-full max-sm:m-3">
 
         {value.map((item: any, idx: number) => {
             const questionNumber = idx + 1;
@@ -110,7 +110,7 @@ export default function MCQuiz() {
                         onChange={() => handleOptionChange(questionNumber, key)}
                         className="cursor-pointer"
                         />
-                        <strong> {key.toLowerCase()} :  </strong>  { String( val)}
+                        <strong> {key.toLowerCase()} :  {" "} </strong>  { String( val)}
                     </div>
                     ))}
                 </div>
