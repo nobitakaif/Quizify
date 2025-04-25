@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 
 export default function MainLayout({children}:{children:ReactNode}){
     return <div suppressContentEditableWarning>
-        <div className="flex mt-8 w-[25%] justify-between items-center px-8">
+        <div className="flex mt-8 w-[25%] justify-between items-center px-8 max-sm:w-full">
             <div>
                 <SignedIn>
                     <UserButton/>

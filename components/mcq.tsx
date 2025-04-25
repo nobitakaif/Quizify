@@ -9,6 +9,7 @@ import { Button } from "./ui/button";
 
 export default function MCQuiz() {
   const [value, setValue] = useState<any>([]);
+  const [ allQuestion, setAllQuestion ] = useState<any>([])
   const [selectedOptions, setSelectedOptions] = useState<any>({});
   const pointRef = useRef<any>(null);
   const questionRef = useRef<any>(null);
@@ -44,21 +45,33 @@ export default function MCQuiz() {
       return;
     }
 
+    setAllQuestion([])
+    let parsedData = null
     try {
-      const response = await axios.post("http://35.225.165.253:3002/checkbox", {
+      const response = await axios.post("http://localhost:3002/checkbox", {
         difficultyLevel: level,
         topic: topic,
         question: question,
       });
 
       let finalData = response.data.finalAnswer;
-
+      
       if (typeof finalData === "string") {
         const cleanedData = fixInvalidJSON(finalData);
+        
         try {
-          const parsedData = JSON.parse(cleanedData);
+          console.log("this is clean data ",cleanedData)
+          parsedData = await JSON.parse(cleanedData);
+          
+          console.log("this is current state of allQestion",allQuestion)
+          console.log("this is parsed data ",parsedData)
+          
+          
           setValue(parsedData);
-          setSelectedOptions({});
+          
+         
+          console.log("this is all question from response ",allQuestion)
+          
         } catch (err) {
           console.error("JSON Parsing Error:", err);
           console.log("Data after fixing:", cleanedData);
@@ -72,7 +85,18 @@ export default function MCQuiz() {
       console.error("API Error:", error);
       alert("Something went wrong. Please try again later.");
     }
+    console.log("this is current value ",value )
+    console.log(parsedData[0][`Q.1`])
+     for(let i =0 ;i<5;i++){
+        const getQuestion = parsedData[i][`Q.${(i+1)}`]
+        console.log("this is getQueston : ", getQuestion + " ",i+1)
+        setAllQuestion((prev:string) => ([...prev,getQuestion]))
+      }
   };
+
+  const submit = async ()=>{
+
+  }
 
   return (
     <div className=" flex gap-4 overflow-y-auto scrollbar-hide max-sm:flex-col">
@@ -83,7 +107,7 @@ export default function MCQuiz() {
                 <Input type="text" ref={levelRef} placeholder="Difficulty level" />
                 <Input type="text" ref={questionRef} placeholder="Number of questions" />
                 <Button onClick={getMCQ} className="w-full cursor-pointer" asChild><button>Get MCQ</button></Button>
-                <Button asChild className="w-full cursor-pointer bg-blue-500 hover:bg-blue-600" disabled><button>Submit </button></Button>
+                <Button asChild className="w-full cursor-pointer bg-blue-500 hover:bg-blue-600" onClick={submit}><button>Submit </button></Button>
             </div>
         </div>
       
