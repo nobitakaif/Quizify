@@ -1,5 +1,7 @@
-import Rank from "@/components/Rank";
+
 
 export default function(){
-    return <></>
+    return <>
+    <h3>This is rank page</h3>
+    </>
 }

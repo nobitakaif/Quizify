@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { SignedIn, SignedOut, SignIn, SignInButton, UserButton } from "@clerk/nextjs";
-import { User } from "@clerk/nextjs/server";
+
 
 export default function Auth(){
     return <div className="flex h-screen justify-center items-center">

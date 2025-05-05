@@ -3,7 +3,7 @@ import axios from "axios"
 import {  useRef, useState } from "react"
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import { Loader } from "lucide-react";
+
 import { useRouter } from "next/navigation";
 import Rank from "./Rank";
 import Popup from "./Rank";
