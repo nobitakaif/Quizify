@@ -59,7 +59,7 @@ export default function MCQuiz() {
     
     let parsedData = null
     try {
-      const response = await axios.post("http://34.132.150.238:3002/checkbox", {
+      const response = await axios.post("https://34.132.150.238:3002/checkbox", {
         difficultyLevel: level,
         topic: topic,
         question: question,
