@@ -5,7 +5,6 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 
 import { useRouter } from "next/navigation";
-import Rank from "./Rank";
 import Popup from "./Rank";
 import { toast } from 'sonner';
 
@@ -64,7 +63,9 @@ export default function MCQuiz() {
         difficultyLevel: level,
         topic: topic,
         question: question,
-      });
+      }
+      
+    );
 
       let finalData = response.data.finalAnswer;
       
