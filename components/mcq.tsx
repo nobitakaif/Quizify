@@ -59,7 +59,7 @@ export default function MCQuiz() {
     
     let parsedData = null
     try {
-      const response = await axios.post("https://a25f-34-132-150-238.ngrok-free.app/checkbox", {
+      const response = await axios.post("https://2075-34-132-150-238.ngrok-free.app/checkbox", {
         difficultyLevel: level,
         topic: topic,
         question: question,
@@ -150,7 +150,7 @@ export default function MCQuiz() {
     //  console.log("the value of answer " , answer)
     //  const demoQuestion = ["What's the worst-case time complexity for deleting an arbitrary node in a self-balancing AVL tree?","who develop c language?"]
     //  const demoAnswer = ["O(n)","Dennis Ritchie "]
-    const response = await axios.post(`http://34.132.150.238:3002/quizy`,{
+    const response = await axios.post(`https://2075-34-132-150-238.ngrok-free.app/quizy`,{
       one:tempQuestion,
       sec:tempAnswer
     })
