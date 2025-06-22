@@ -51,15 +51,18 @@ export default function MCQuiz() {
     const topic = pointRef.current.value;
     const question = questionRef.current.value;
 
+    
+    console.log(level, " ", topic," ", question)
+
     if (!question || !topic || !level) {
-      alert("Please fill all the details");
+      toast.error("Please fill all the details");
       return;
     }
 
     
     let parsedData = null
     try {
-      const response = await axios.post("https://2075-34-132-150-238.ngrok-free.app/checkbox", {
+      const response = await axios.post("https://quiziy-backend.onrender.com/checkbox", {
         difficultyLevel: level,
         topic: topic,
         question: question,
@@ -88,7 +91,7 @@ export default function MCQuiz() {
         } catch (err) {
           console.error("JSON Parsing Error:", err);
           console.log("Data after fixing:", cleanedData);
-          alert("Invalid response from server. Please try again later.");
+          toast.error("Invalid response from server. Please try again later.");
         }
       } else {
         setValue(finalData);
@@ -96,7 +99,7 @@ export default function MCQuiz() {
       }
     } catch (error) {
       console.error("API Error:", error);
-      alert("Something went wrong. Please try again later.");
+      toast.error("Something went wrong. Please try again later.");
     }
     setValue([]);
     console.log("this is current value ",value )
@@ -113,6 +116,7 @@ export default function MCQuiz() {
 
   const submit = async ()=>{
     setCorrectAnswer(0)
+    console.log(`total correct answer`,correctAnswer)
     console.log(selectedOptions)
     
     setDisable(false)
@@ -150,7 +154,7 @@ export default function MCQuiz() {
     //  console.log("the value of answer " , answer)
     //  const demoQuestion = ["What's the worst-case time complexity for deleting an arbitrary node in a self-balancing AVL tree?","who develop c language?"]
     //  const demoAnswer = ["O(n)","Dennis Ritchie "]
-    const response = await axios.post(`https://2075-34-132-150-238.ngrok-free.app/quizy`,{
+    const response = await axios.post(`https://quiziy-backend.onrender.com/quizy`,{
       one:tempQuestion,
       sec:tempAnswer
     })

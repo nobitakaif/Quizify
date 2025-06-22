@@ -13,7 +13,7 @@ export default function Main(){
     const onClick= async ()=>{
         const level = levelVal.current?.value 
         console.log(level)
-        const response = await axios.post('http://localhost:3002/prompt',{
+        const response = await axios.post('https://quiziy-backend.onrender.com/prompt',{
         
             "difficultyLevel" : "high",
             "topic" : "web dev",

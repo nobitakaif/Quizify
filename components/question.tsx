@@ -24,7 +24,7 @@ export default function QnA(){
             alert("please fill the details for better response")
             return
         }
-        const response = await axios.post("http://localhost:3002/prompt",{
+        const response = await axios.post("https://quiziy-backend.onrender.com/prompt",{
             difficultyLevel : level,
             topic: topic,
             question : question
