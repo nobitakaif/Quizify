@@ -4,12 +4,12 @@ import { SignedIn, UserButton } from "@clerk/nextjs";
 import { ReactNode } from "react";
 
 
-const MCQLayout=({children}:{children:ReactNode})=>{
-    return <div suppressContentEditableWarning>
+const RankLayout=({children}:{children:ReactNode})=>{
+    return <div className="h-screen w-full">
         
         {children}
         
     </div>
 }
 
-export default MCQLayout
+export default RankLayout

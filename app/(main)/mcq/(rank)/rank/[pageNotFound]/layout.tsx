@@ -1,15 +1,15 @@
-
 import { ModeToggle } from "@/components/ui/ModeToggle";
 import { SignedIn, UserButton } from "@clerk/nextjs";
 import { ReactNode } from "react";
 
 
-const MCQLayout=({children}:{children:ReactNode})=>{
-    return <div suppressContentEditableWarning>
+const PageNotFound=({children}:{children:ReactNode})=>{
+    return <div>
         
+    
         {children}
         
     </div>
 }
 
-export default MCQLayout
+export default PageNotFound

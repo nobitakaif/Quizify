@@ -1,12 +1,12 @@
 "use client"
 import axios from "axios"
-import {  useRef, useState } from "react"
+import {  useEffect, useRef, useState } from "react"
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 
 import { useRouter } from "next/navigation";
 import Popup from "./Rank";
-import { toast } from 'sonner';
+import { toast }  from 'sonner';
 
 
 export default function MCQuiz() {
@@ -33,6 +33,8 @@ export default function MCQuiz() {
     }));
   };
 
+ 
+  
   const fixInvalidJSON = (data: string) => {
     let fixedData = data;
     fixedData = fixedData.replace(/```json|```/g, "");
