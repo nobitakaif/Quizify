@@ -3,7 +3,6 @@ import axios from "axios"
 import {  useEffect, useRef, useState } from "react"
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-
 import { useRouter } from "next/navigation";
 import Popup from "./Rank";
 import { toast }  from 'sonner';
@@ -32,8 +31,6 @@ export default function MCQuiz() {
       [questionNumber]: selected,
     }));
   };
-
- 
   
   const fixInvalidJSON = (data: string) => {
     let fixedData = data;

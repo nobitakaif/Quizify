@@ -1,5 +1,5 @@
 import QnA from "@/components/question";
-import { ThreeDCardDemo } from "@/components/test";
+
 
 
 export default function(){
