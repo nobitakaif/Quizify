@@ -4,6 +4,8 @@ import { useRef, useState } from "react"
 import Quiz from "./quiz"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
+import { SignedIn, UserButton } from "@clerk/nextjs"
+import { ModeToggle } from "./ui/ModeToggle"
 
 export default function QnA(){
     const [value , setValue ] = useState<any[]>([])
@@ -24,7 +26,7 @@ export default function QnA(){
             alert("please fill the details for better response")
             return
         }
-        const response = await axios.post("https://quiziy-backend.onrender.com/prompt",{
+        const response = await axios.post("http://localhost:3002/prompt",{
             difficultyLevel : level,
             topic: topic,
             question : question
@@ -64,17 +66,19 @@ export default function QnA(){
         // console.log(parsedData)
         // setValue(parsedData)
     }
-    return <div className="flex gap-4 overflow-y-auto scrollbar-hide">
+    return <div className="flex gap-4 overflow-y-auto scrollbar-hide max-sm:flex-col mt-10  overflow-hidden">
         
-        <div className="w-[25%] rounded-2xl  flex justify-center items-center h-[90vh]">
-            <div className="flex flex-col w-72 items-center gap-3 p-8 border rounded-xl  ">
+        
+        <div className="flex flex-col w-72 items-center gap-3 p-8  max-sm:w-full  rounded-xl  ">
+            <div className="flex flex-col w-72 items-center gap-3 p-8 border rounded-xl  absolute top-[25%] min-sm:ml-20">
                 <Input type="text" placeholder="enter user topic" ref={topicRef}/>
             
                 <Input type="text" placeholder="enter difficulty level" ref={levelRef}/>
         
                 <Input type="text" placeholder="enter number of question" ref={questionRef}/>
             
-                <Button onClick={getQuestion} className="cursor-pointer">Get Topic</Button>
+                <Button onClick={getQuestion} className="cursor-pointer w-full text-lg font-semibold">Get Topic</Button>
+                <Button onClick={getQuestion} className="cursor-pointer w-full bg-blue-500 text-white text-lg font-semibold">Submit</Button>
             </div>
         </div>
         {/* { value.map((item:any,idx)=>{
@@ -82,9 +86,7 @@ export default function QnA(){
                 Q.{++idx} {item}
             </div>
         })} */}
-        <div style={{
-            width:"100%"
-        }}>
+        <div className="ml-20 w-[74%] ">
             <Quiz value={value}/>    
         </div>
         

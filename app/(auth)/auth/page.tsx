@@ -12,7 +12,7 @@ export default function Auth(){
                 transition={{ delay: 0.8, duration: 0.6 }}
                 className="text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed"
             >
-                Please Log-in Before Go-head
+                Please Log-in Before Go-ahead
             </motion.p>
         </div>
         <motion.div
