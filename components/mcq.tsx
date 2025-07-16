@@ -61,7 +61,7 @@ export default function MCQuiz() {
     
     let parsedData = null
     try {
-      const response = await axios.post("https://quiziy-backend.onrender.com/checkbox", {
+      const response = await axios.post("http://10.172.125.196:3002/checkbox", {
         difficultyLevel: level,
         topic: topic,
         question: question,
